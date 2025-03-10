@@ -1,15 +1,16 @@
-import Friend from "./Friend.jsx";
-import FriendForm from "./FriendForm.jsx";
+import Friend from './Friend.jsx'
 
-
-export default function FriendsList() {
+export default function FriendsList({ friends, onSelection, selectedFriend }) {
   return (
-    <div className="sidebar">
-      <ul>
-        <Friend />
-      </ul>
-      <button className="button">Add Friend</button>
-      <FriendForm />
-    </div>
+    <ul>
+      {friends.map((friend) => (
+        <Friend
+          friend={friend}
+          key={friend.id}
+          selectedFriend={selectedFriend}
+          onSelection={onSelection}
+        />
+      ))}
+    </ul>
   );
 }
